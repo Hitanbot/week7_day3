@@ -1,5 +1,5 @@
 <template lang="html">
-  <li v-on:click="handleClick">{{country.name}}</li>
+  <option :value="country" @change="onChange()">{{country.name}}</option>
 </template>
 
 <script>
@@ -9,9 +9,11 @@ export default {
   name: 'list-item',
   props: ['country'],
   methods: {
-    handleClick(){
+  onChange(){
       eventBus.$emit('country-selected', this.country)
-    }
+
+  }
+
   }
 }
 </script>
